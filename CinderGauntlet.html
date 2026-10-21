@@ -1457,7 +1457,7 @@ const DBG={on:false,segs:[],bl:[],v:new T.Vector3(),
 let G=null;
 class Game{
  constructor(){this.gfx=new Gfx();this.inp=new Input();this.aud=new Aud();this.st='menu';this.dif=DIF.Normal;this.difn='Normal';this.hs=0;this.shk=0;this.acc=0;this.last=0;this.time=0;this.cyaw=0;this.cpit=.25;this.fr=0;this.ft=[];this.fpsAvg=60;this.hit=$('#hit');this.pl=null;this.boss=null;this.bi=0;this.paused=false;this.cam=this.gfx.cam;this.cpos=new T.Vector3();this.look=new T.Vector3();this.imp=new T.Vector3();this.tv=new T.Vector3();this.tv2=new T.Vector3();this.projs=[];this.zones=[];
-  this.hpE=$('#hp i'),this.spE=$('#sp i'),this.bbE=$('#bb i'),this.bgE=$('#bb u');this.gh=1;this.lastP=-1;
+  this.hpE=document.getElementById('hp-fill'),this.spE=document.getElementById('sp-fill'),this.bbE=document.getElementById('bb-fill'),this.bgE=document.getElementById('bg-fill');this.gh=1;this.lastP=-1;
   addEventListener('resize',()=>this.rs());addEventListener('orientationchange',()=>this.rs());document.addEventListener('visibilitychange',()=>{this.last=0;if(document.hidden&&this.st==='fight')this.pause(true)});
   document.addEventListener('pointerlockchange',()=>{if(!document.pointerLockElement&&this.st==='fight'&&!this.paused&&!TOUCH)this.pause(true)});
   this.gfx.apply();DBG.init()}
