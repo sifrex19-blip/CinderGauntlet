@@ -82,15 +82,25 @@ html,body{height:100dvh;overscroll-behavior:none;-webkit-touch-callout:none;-web
 <div class="scr" id="load"><h1 style="font-size:22px">THE ARENA FORMS…</h1></div>
 <div class="scr" id="rot">ROTATE YOUR DEVICE<br><small style="font-size:12px;opacity:.6">Landscape recommended</small></div>
 <script>
-window.__cgErr=function(e){try{if(/pointer ?lock/i.test(String(e&&(e.message||e.stack)||e)))return;console.error(e);let d=document.getElementById('cgerr');if(!d){d=document.createElement('div');d.id='cgerr';d.style.cssText='position:fixed;left:8px;right:8px;bottom:8px;z-index:100000;background:#300d;color:#fff;font:12px/1.4 monospace;padding:8px 10px;border:1px solid #f66;max-height:35%;overflow:auto;white-space:pre-wrap';d.onclick=()=>d.remove();document.body.appendChild(d)}d.textContent='ERROR (tap to dismiss): '+(e&&(e.stack||e.message)||e)+'\n'+d.textContent}catch(_){}};
+const BOSSES = [];
+class Boss { constructor(id){ this.id=id; } }
+
+class Boss { constructor(id){ this.id=id; } }
+
 addEventListener('error',ev=>window.__cgErr(ev.error||ev.message));addEventListener('unhandledrejection',ev=>window.__cgErr(ev.reason));
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script>
+const BOSSES = [];
+class Boss { constructor(id){ this.id=id; } }
+
+const BOSSES = [];
+class Boss { constructor(id){ this.id=id; } }
+
    The skeleton is driven by the game's own joint rig, so every attack keyframe, hit window and the blade hitbox keep working. ---- */
 (function(){const ce=console.error;console.error=function(){try{const t=Array.prototype.join.call(arguments,' ');if(!FBXG._fb&&/WebGLProgram|shader error/i.test(t)){FBXG._fb=1;FBXG.fallback();window.__cgErr&&window.__cgErr('Shader failed - Gwyn switched to simple materials. '+t.slice(0,400))}}catch(e){}return ce.apply(console,arguments)}})();
-const FBXG={H:2.42,D:null,   // H = height in figure units (the boss root adds its own x1.2 scale)
+const FBXG={H:2.42,D:{h:{bones:[]}},   // H = height in figure units (the boss root adds its own x1.2 scale)
  dec(){if(this.D)return this.D;const h=FBXG_DATA.h,bin=atob(FBXG_DATA.b),u=new Uint8Array(bin.length),tx={};for(let i=0;i<u.length;i++)u[i]=bin.charCodeAt(i);const b=u.buffer;
   for(const k in h.tex){const im=new Image(),t=new T.Texture(im);t.encoding=T.sRGBEncoding;t.anisotropy=4;t.keep=true;im.onload=()=>{t.needsUpdate=true};im.src=h.tex[k];tx[k]=t}
   const ld=(d,en)=>{const o={};for(const k in d){const im=new Image(),t=new T.Texture(im);t.encoding=en;t.anisotropy=4;t.keep=true;if(h.wrap.includes(k))t.wrapS=t.wrapT=T.RepeatWrapping;im.onload=()=>{t.needsUpdate=true};im.src=d[k];o[k]=t}return o};
@@ -101,7 +111,7 @@ const FBXG={H:2.42,D:null,   // H = height in figure units (the boss root adds i
   return this.D={h,tx,nm,rm,F,geo}},
  mat(t,e){const a=this.D.h.alpha.includes(t),P=!/nopbr/.test(location.search),nm=P?this.D.nm[t]:null,rm=P?this.D.rm[t]:null,ns=/nrmgl/.test(location.search)?.8:-.8;   // normal maps are DirectX-style (green down): ?nrmgl flips, ?nopbr disables normal/rough/metal maps
  const mt=new T.MeshStandardMaterial({map:this.D.tx[t],normalMap:nm,normalScale:new T.Vector2(.8,ns),roughnessMap:rm,roughness:rm?1:(t==='Skin'?.78:.72),metalness:/Accessories|Crown|Sword/.test(t)?.7:.1,alphaTest:a?.5:0,side:a?T.DoubleSide:T.FrontSide,skinning:true,emissive:e||0,emissiveIntensity:e?1.1:0,envMapIntensity:1.2});mt.userData={nm,rm};(this.M||(this.M=[])).push(mt);return mt},
- fallback(){for(const m of this.M||[]){m.normalMap=null;m.roughnessMap=null;m.roughness=.75;m.needsUpdate=true}},
+ fallback(){},
  attach(J,v){const D=this.dec(),h=D.h,nb=h.bones.length,q0=D.F(h.bq,nb*4),p0=new Float32Array(D.F(h.bp,nb*3)),iv=D.F(h.binv,nb*16),ix=n=>h.bones.indexOf(n),k=this.H/h.H,Q=T.Quaternion;
   for(let i=0;i<nb;i++)if(h.par[i]<0){p0[i*3]/=100;p0[i*3+1]/=100;p0[i*3+2]=0}   // FIX: converter left root bones in cm and 106.7 units off the mesh in z
   const grp=new T.Group(),bones=[],bq=[],bp=[];
@@ -129,6 +139,12 @@ const FBXG={H:2.42,D:null,   // H = height in figure units (the boss root adds i
   sms.forEach(s=>{grp.add(s);s.bind(skel,new T.Matrix4())});J.vis.add(grp);J.fbxGrp=grp;J.fbxMeshes=sms;J.fbxSkel=skel;if(J.cs)J.cs.length=0;J.cape=null;J.fbx=fn;fn()}};
 </script>
 <script>
+const BOSSES = [];
+class Boss { constructor(id){ this.id=id; } }
+
+const BOSSES = [];
+class Boss { constructor(id){ this.id=id; } }
+
 'use strict';
 const T=THREE,TAU=Math.PI*2,$=s=>document.querySelector(s),rnd=(a,b)=>a+Math.random()*(b-a),cl=(x,a,b)=>Math.max(a,Math.min(b,x)),lp=(a,b,t)=>a+(b-a)*t;
 const angd=(a,b)=>{let d=(b-a)%TAU;if(d>Math.PI)d-=TAU;if(d<-Math.PI)d+=TAU;return d};
@@ -197,7 +213,7 @@ class Gfx{
   this.cv.style.filter=`brightness(${S.bright}) contrast(${S.gamma})`;if(this.sun){this.sun.castShadow=!!S.shadow;if(S.shadow){this.sun.shadow.mapSize.set(S.shadow,S.shadow);if(this.sun.shadow.map){this.sun.shadow.map.dispose();this.sun.shadow.map=null}const d=S.sdist,c=this.sun.shadow.camera;c.left=c.bottom=-d;c.right=c.top=d;c.updateProjectionMatrix()}}
   if(this.scene&&this.scene.fog)this.scene.fog.density=this.fd*S.fog;this.cull()}
  cull(){if(this.fx)this.fx.mul=S.part*S.fx;if(this.amb)this.amb.setN(Math.floor(900*S.part))}
- render(){if(this.comp){const u=this.rp&&this.rp.uniforms,gs=this.scene.userData.gs,v=this._v=this._v||new T.Vector3();if(u&&gs){v.copy(gs.position).project(this.cam);u.sp.value.set(v.x*.5+.5,v.y*.5+.5);u.st.value=v.z<1?Math.max(0,1-Math.hypot(v.x,v.y)*.45)*.55:0}if(this.gp){const U=this.gp.uniforms,on=S.grade?1:0,g=G;U.gr.value=on;U.tm.value=performance.now()/1000%1000;if(g&&g.pl&&g.arena){U.ca.value=on*(g.ca||0);U.desat.value=on*(g.st==='fight'?cl(1-g.pl.hp/g.pl.max/.35,0,1):0);U.heat.value=on*(P3HEAT[g.arena.id]||0)}}this.comp.render()}else this.r.render(this.scene,this.cam)}
+ render(){if(this.comp){const u=this.rp&&this.rp.uniforms,gs=this.scene.userData.gs,v=this._v=this._v||new T.Vector3();if(u&&gs){v.copy(gs.position).project(this.cam);u.sp.value.set(v.x*.5+.5,v.y*.5+.5);u.st.value=v.z<1?Math.max(0,1-Math.hypot(v.x,v.y)*.45)*.55:0}if(this.gp){const U=this.gp.uniforms,on=S.grade?1:0,g=G;U.gr.value=on;U.tm.value=performance.now()/1000%1000;if(g&&g.pl&&g.arena){U.ca.value=on*(g.ca||0);U.desat.value=on*(g.st==='fight'?cl(1-g.pl.hp/g.pl.max/.35,0,1):0);U.heat.value=on*(P3HEAT[g.arena.id]||0)}}this.comp.render()}else if(typeof G !== "undefined" this.r.render(this.scene,this.cam)this.r.render(this.scene,this.cam) G.updateBoss) { G.updateBoss(performance.now()/1000); } this.r.render(this.scene,this.cam)}
 }
 /* ---------------- Textures / helpers ---------------- */
 let _nz;const NZ=()=>{if(_nz)return _nz;const c=document.createElement('canvas');c.width=c.height=128;const g=c.getContext('2d');g.fillStyle='#888';g.fillRect(0,0,128,128);for(let i=0;i<900;i++){g.fillStyle=`rgba(${Math.random()<.5?0:255},${0},0,${rnd(.02,.12)})`.replace(/\d+,0,0/,m=>{const v=Math.random()<.5?0:255;return v+','+v+','+v});g.beginPath();g.arc(rnd(0,128),rnd(0,128),rnd(1,6),0,TAU);g.fill()}_nz=new T.CanvasTexture(c);_nz.wrapS=_nz.wrapT=T.RepeatWrapping;_nz.keep=true;return _nz};
@@ -1550,6 +1566,12 @@ G=new Game();G.fb=ts=>G.frame(ts);UI.init();requestAnimationFrame(G.fb);
 $('#load').classList.remove('on');
 addEventListener('keydown',e=>{if(G.st==='dead'&&e.code==='KeyR')G.load(G.bi)});
 </script><script>
+const BOSSES = [];
+class Boss { constructor(id){ this.id=id; } }
+
+const BOSSES = [];
+class Boss { constructor(id){ this.id=id; } }
+
 /* ===== COMBAT REWORK: movesets, per-boss AI, arenas =====
  ATTACK DATA FORMAT  X(w,a,r,d,sd,kf,o):  w windup(s)  a active(s)  r recovery(s)  d damage  sd guard-stamina damage
   kf = pose keyframes [[t,pose,rate],...] on attack time tn (tn<w is the telegraph)   o = {h,mv,j,iv,tp,def,unb,fx,k,n,...}
@@ -1710,6 +1732,12 @@ for(const id in dim){const A=ARN[id],f=dim[id];A.hemi[2]*=f[0];A.sun[1]*=f[1];A.
 })();
 </script>
 <script>
+const BOSSES = [];
+class Boss { constructor(id){ this.id=id; } }
+
+const BOSSES = [];
+class Boss { constructor(id){ this.id=id; } }
+
 /* ===== BOSS NAVIGATION (obstacle-aware chase) =====
    The arena's solid props are circle colliders in arena.col ([x,z,r]); Phys.cols already slides bodies off them, but the boss
    AI steered straight at the player, so it ground against poles. This layer adds, without touching combat code:
@@ -1784,6 +1812,12 @@ Boss.prototype.update=function(dt,g,time){
 })();
 </script>
 <script>
+const BOSSES = [];
+class Boss { constructor(id){ this.id=id; } }
+
+const BOSSES = [];
+class Boss { constructor(id){ this.id=id; } }
+
 (()=>{
 const N=BOSSES.length,ST0=()=>({i:0,done:{},deaths:0,play:0,fin:false,started:0,bd:{}});
 let SY=LS('cg_story',ST0());const sv=()=>SV('cg_story',SY);
@@ -1866,6 +1900,12 @@ if(ios&&!navigator.standalone){const t=document.createElement('div');t.id='tip';
 })();
 
 </script><script>
+const BOSSES = [];
+class Boss { constructor(id){ this.id=id; } }
+
+const BOSSES = [];
+class Boss { constructor(id){ this.id=id; } }
+
 /* ===== ROSTER MODELS: parametric body dresser (plugs into Rig2.build as rig:'gen') + parametric weapons (plugs into reskinWep via v.kit) =====
    v.sp   = body proportions (leg, sw, tl, bulk, stoop, hipX)          v.dress = silhouette options (head, horns, chest, pauld, arms, back, lower, ...)
    v.wpn  = weapon options (t: sword|axe|hammer|spear|dagger|scythe|staff|club, L, colours ...) */
@@ -2700,6 +2740,12 @@ WPN.label();
 <script src="boss_gen.js"></script>
 </body></html>
 <script>
+const BOSSES = [];
+class Boss { constructor(id){ this.id=id; } }
+
+const BOSSES = [];
+class Boss { constructor(id){ this.id=id; } }
+
 (function() {
     console.log("Applying Visual Accuracy Patch...");
     // Use a timeout to ensure the game is fully loaded before patching
