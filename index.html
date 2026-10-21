@@ -82,6 +82,22 @@ html,body{height:100dvh;overscroll-behavior:none;-webkit-touch-callout:none;-web
 <div class="scr" id="load"><h1 style="font-size:22px">THE ARENA FORMS…</h1></div>
 <div class="scr" id="rot">ROTATE YOUR DEVICE<br><small style="font-size:12px;opacity:.6">Landscape recommended</small></div>
 <script>
+const G={st:"menu",paused:false,difn:"norm",dif:null,bi:0,aud:{init:()=>{},play:()=>{} },load:()=>console.log("Loading boss..."),pause:()=>{},banner:()=>{},}
+const S={bloom:1,grade:1};
+const PRG={b:{},d:0};
+const ARN={};
+const DIF={norm:{},hard:{},insane:{}};
+const KB={},
+KB0={};
+const NAMES={};
+const SY={i:0,started:0};
+const UI={sel:0,mode:"custom",tab:"Settings",SCH:{Settings:{},Controls:{}},show:()=>{},open:()=>{},unlocked:()=>true,select:()=>{},rows:()=>{}};
+const DBG={draw:()=>{}};
+const P3HEAT={};
+const ARN_DATA={};
+const BOSSES=[];
+class Boss { constructor(id){ this.id=id; } }
+
 const BOSSES = [];
 class Boss { constructor(id){ this.id=id; } }
 
@@ -92,6 +108,22 @@ addEventListener('error',ev=>window.__cgErr(ev.error||ev.message));addEventListe
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script>
+const G={st:"menu",paused:false,difn:"norm",dif:null,bi:0,aud:{init:()=>{},play:()=>{} },load:()=>console.log("Loading boss..."),pause:()=>{},banner:()=>{},}
+const S={bloom:1,grade:1};
+const PRG={b:{},d:0};
+const ARN={};
+const DIF={norm:{},hard:{},insane:{}};
+const KB={},
+KB0={};
+const NAMES={};
+const SY={i:0,started:0};
+const UI={sel:0,mode:"custom",tab:"Settings",SCH:{Settings:{},Controls:{}},show:()=>{},open:()=>{},unlocked:()=>true,select:()=>{},rows:()=>{}};
+const DBG={draw:()=>{}};
+const P3HEAT={};
+const ARN_DATA={};
+const BOSSES=[];
+class Boss { constructor(id){ this.id=id; } }
+
 const BOSSES = [];
 class Boss { constructor(id){ this.id=id; } }
 
@@ -139,6 +171,22 @@ const FBXG={H:2.42,D:{h:{bones:[]}},   // H = height in figure units (the boss r
   sms.forEach(s=>{grp.add(s);s.bind(skel,new T.Matrix4())});J.vis.add(grp);J.fbxGrp=grp;J.fbxMeshes=sms;J.fbxSkel=skel;if(J.cs)J.cs.length=0;J.cape=null;J.fbx=fn;fn()}};
 </script>
 <script>
+const G={st:"menu",paused:false,difn:"norm",dif:null,bi:0,aud:{init:()=>{},play:()=>{} },load:()=>console.log("Loading boss..."),pause:()=>{},banner:()=>{},}
+const S={bloom:1,grade:1};
+const PRG={b:{},d:0};
+const ARN={};
+const DIF={norm:{},hard:{},insane:{}};
+const KB={},
+KB0={};
+const NAMES={};
+const SY={i:0,started:0};
+const UI={sel:0,mode:"custom",tab:"Settings",SCH:{Settings:{},Controls:{}},show:()=>{},open:()=>{},unlocked:()=>true,select:()=>{},rows:()=>{}};
+const DBG={draw:()=>{}};
+const P3HEAT={};
+const ARN_DATA={};
+const BOSSES=[];
+class Boss { constructor(id){ this.id=id; } }
+
 const BOSSES = [];
 class Boss { constructor(id){ this.id=id; } }
 
@@ -1566,6 +1614,22 @@ G=new Game();G.fb=ts=>G.frame(ts);UI.init();requestAnimationFrame(G.fb);
 $('#load').classList.remove('on');
 addEventListener('keydown',e=>{if(G.st==='dead'&&e.code==='KeyR')G.load(G.bi)});
 </script><script>
+const G={st:"menu",paused:false,difn:"norm",dif:null,bi:0,aud:{init:()=>{},play:()=>{} },load:()=>console.log("Loading boss..."),pause:()=>{},banner:()=>{},}
+const S={bloom:1,grade:1};
+const PRG={b:{},d:0};
+const ARN={};
+const DIF={norm:{},hard:{},insane:{}};
+const KB={},
+KB0={};
+const NAMES={};
+const SY={i:0,started:0};
+const UI={sel:0,mode:"custom",tab:"Settings",SCH:{Settings:{},Controls:{}},show:()=>{},open:()=>{},unlocked:()=>true,select:()=>{},rows:()=>{}};
+const DBG={draw:()=>{}};
+const P3HEAT={};
+const ARN_DATA={};
+const BOSSES=[];
+class Boss { constructor(id){ this.id=id; } }
+
 const BOSSES = [];
 class Boss { constructor(id){ this.id=id; } }
 
@@ -1732,6 +1796,22 @@ for(const id in dim){const A=ARN[id],f=dim[id];A.hemi[2]*=f[0];A.sun[1]*=f[1];A.
 })();
 </script>
 <script>
+const G={st:"menu",paused:false,difn:"norm",dif:null,bi:0,aud:{init:()=>{},play:()=>{} },load:()=>console.log("Loading boss..."),pause:()=>{},banner:()=>{},}
+const S={bloom:1,grade:1};
+const PRG={b:{},d:0};
+const ARN={};
+const DIF={norm:{},hard:{},insane:{}};
+const KB={},
+KB0={};
+const NAMES={};
+const SY={i:0,started:0};
+const UI={sel:0,mode:"custom",tab:"Settings",SCH:{Settings:{},Controls:{}},show:()=>{},open:()=>{},unlocked:()=>true,select:()=>{},rows:()=>{}};
+const DBG={draw:()=>{}};
+const P3HEAT={};
+const ARN_DATA={};
+const BOSSES=[];
+class Boss { constructor(id){ this.id=id; } }
+
 const BOSSES = [];
 class Boss { constructor(id){ this.id=id; } }
 
@@ -1812,6 +1892,22 @@ Boss.prototype.update=function(dt,g,time){
 })();
 </script>
 <script>
+const G={st:"menu",paused:false,difn:"norm",dif:null,bi:0,aud:{init:()=>{},play:()=>{} },load:()=>console.log("Loading boss..."),pause:()=>{},banner:()=>{},}
+const S={bloom:1,grade:1};
+const PRG={b:{},d:0};
+const ARN={};
+const DIF={norm:{},hard:{},insane:{}};
+const KB={},
+KB0={};
+const NAMES={};
+const SY={i:0,started:0};
+const UI={sel:0,mode:"custom",tab:"Settings",SCH:{Settings:{},Controls:{}},show:()=>{},open:()=>{},unlocked:()=>true,select:()=>{},rows:()=>{}};
+const DBG={draw:()=>{}};
+const P3HEAT={};
+const ARN_DATA={};
+const BOSSES=[];
+class Boss { constructor(id){ this.id=id; } }
+
 const BOSSES = [];
 class Boss { constructor(id){ this.id=id; } }
 
@@ -1900,6 +1996,22 @@ if(ios&&!navigator.standalone){const t=document.createElement('div');t.id='tip';
 })();
 
 </script><script>
+const G={st:"menu",paused:false,difn:"norm",dif:null,bi:0,aud:{init:()=>{},play:()=>{} },load:()=>console.log("Loading boss..."),pause:()=>{},banner:()=>{},}
+const S={bloom:1,grade:1};
+const PRG={b:{},d:0};
+const ARN={};
+const DIF={norm:{},hard:{},insane:{}};
+const KB={},
+KB0={};
+const NAMES={};
+const SY={i:0,started:0};
+const UI={sel:0,mode:"custom",tab:"Settings",SCH:{Settings:{},Controls:{}},show:()=>{},open:()=>{},unlocked:()=>true,select:()=>{},rows:()=>{}};
+const DBG={draw:()=>{}};
+const P3HEAT={};
+const ARN_DATA={};
+const BOSSES=[];
+class Boss { constructor(id){ this.id=id; } }
+
 const BOSSES = [];
 class Boss { constructor(id){ this.id=id; } }
 
@@ -2740,6 +2852,22 @@ WPN.label();
 <script src="boss_gen.js"></script>
 </body></html>
 <script>
+const G={st:"menu",paused:false,difn:"norm",dif:null,bi:0,aud:{init:()=>{},play:()=>{} },load:()=>console.log("Loading boss..."),pause:()=>{},banner:()=>{},}
+const S={bloom:1,grade:1};
+const PRG={b:{},d:0};
+const ARN={};
+const DIF={norm:{},hard:{},insane:{}};
+const KB={},
+KB0={};
+const NAMES={};
+const SY={i:0,started:0};
+const UI={sel:0,mode:"custom",tab:"Settings",SCH:{Settings:{},Controls:{}},show:()=>{},open:()=>{},unlocked:()=>true,select:()=>{},rows:()=>{}};
+const DBG={draw:()=>{}};
+const P3HEAT={};
+const ARN_DATA={};
+const BOSSES=[];
+class Boss { constructor(id){ this.id=id; } }
+
 const BOSSES = [];
 class Boss { constructor(id){ this.id=id; } }
 
